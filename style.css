@@ -1,0 +1,177 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    margin-top: 0;
+    color: #34495e;
+    text-align: center;
+}
+
+/* Membungkus seluruh aplikasi dengan lebar maksimal 900px */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 900px; /* Sesuai dengan resolusi kanvas */
+}
+
+/* Area Simulasi Atas */
+canvas#simCanvas {
+    background-color: #ffffff;
+    border: 3px solid #7f8c8d;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    cursor: crosshair;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1; 
+}
+
+/* Mengatur dua panel di bawah agar berdampingan */
+.bottom-panels {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+}
+
+.control-panel, .data-panel {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #bdc3c7;
+    flex: 1; /* Kunci agar lebar panel Kiri dan Kanan sama rata (50:50) */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-sizing: border-box;
+}
+
+.status-group, .global-group, .object-factory {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+h3 {
+    margin-top: 0;
+    font-size: 15px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+    color: #2c3e50;
+}
+
+#statusLabel {
+    color: #f39c12;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border-bottom: 2px solid #f39c12;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.input-row label {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+input[type="number"], select, input[type="color"] {
+    width: 120px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    color: white;
+}
+
+.btn-play { background-color: #2ecc71; font-size: 16px; }
+.btn-play:hover { background-color: #27ae60; }
+.btn-play.running { background-color: #e67e22; }
+
+.btn-clear { background-color: #e74c3c; margin-top: 5px; }
+.btn-clear:hover { background-color: #c0392b; }
+
+.btn-add { background-color: #3498db; margin-top: 10px; }
+.btn-add:hover { background-color: #2980b9; }
+
+button:active { transform: scale(0.98); }
+
+small {
+    display: block;
+    margin-top: 10px;
+    font-size: 11px;
+    color: #7f8c8d;
+    line-height: 1.4;
+}
+
+/* --- Gaya Tabel Dinamis --- */
+.table-container {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.obs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    text-align: center;
+    background: #ffffff;
+}
+
+.obs-table th, .obs-table td {
+    border: 1px solid #cbd5e1;
+    padding: 6px 4px;
+}
+
+.obs-table th {
+    background-color: #34495e;
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+}
+
+canvas#graphCanvas {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    width: 100%;
+}
+
+/* Media Query untuk Responsivitas (Jika dibuka di HP, panel akan menyusun ke bawah) */
+@media (max-width: 768px) {
+    .bottom-panels {
+        flex-direction: column;
+    }
+}
